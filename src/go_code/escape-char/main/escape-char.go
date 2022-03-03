@@ -3,7 +3,7 @@ package main
 //"format"
 import "fmt"
 
-func main(){
+func main() {
 	fmt.Println("tom\tjack")
 
 	fmt.Println("Hello\nWorld")
@@ -17,4 +17,11 @@ func main(){
 
 	//Homework
 	fmt.Println("\nName\tAge\tStates\tCity\nJohn\t12\tJohor\tKulai")
+
+	//	gofmt -w escape-char.go -> auto format file
+
+	var num = 2 + 4*4
+
+	fmt.Println(num)
+
 }

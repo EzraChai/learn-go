@@ -22,6 +22,6 @@ func main() {
 
 	var num = 2 + 4*4
 
-	fmt.Println(num)
+	fmt.Println("Number =",num)
 
 }

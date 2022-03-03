@@ -9,4 +9,7 @@ func main(){
 
 	//Calls the Println function in the "fmt" package
 	fmt.Println("Hello world!")
+
+	//go build -o Hallo hello.go -> Hallo.exe
+	//go build hello.go -> hello.exe
 }

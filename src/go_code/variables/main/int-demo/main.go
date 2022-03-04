@@ -31,5 +31,4 @@ func main() {
 
 	var age uint8 = 21
 	fmt.Printf("The type of num2 is %T and num2 occupy %d bytes.", age, unsafe.Sizeof(age))
-
 }

@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"stpd.com/variables/model"
+)
 
 func main() {
 
@@ -9,7 +12,7 @@ func main() {
 	//	get the num variable's pointer
 	fmt.Println(&num)
 
-	//	init a variable pointing the num variable's pointer
+	//	init a variable with the num variable's pointer
 	var ptr *int = &num
 
 	//	use the pointer to change the num variable's value
@@ -17,4 +20,6 @@ func main() {
 
 	//	print the num variable
 	fmt.Println(num)
+	fmt.Println(model.RealLove)
+
 }

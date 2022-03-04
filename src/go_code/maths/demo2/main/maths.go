@@ -13,4 +13,7 @@ func main() {
 		fmt.Println("ok")
 	}
 
+	a := 100
+	pointer := &a
+	fmt.Println(pointer, *pointer)
 }

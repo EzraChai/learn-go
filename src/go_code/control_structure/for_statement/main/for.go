@@ -16,11 +16,29 @@ func main() {
 		k--
 	}
 
-	s := "Chloe Gan"
+	str := "我爱你 Chloe Gan"
+	s := []rune(str)
 	for i := 0; i < len(s); i++ {
 		fmt.Printf("%c", s[i])
 	}
-	fmt.Println("\n")
+	fmt.Println("")
+
+	for index, value := range s {
+		fmt.Printf("%v%c", index, value)
+	}
+
+	fmt.Println("")
+
+	//	The is no while in GoLang
+
+	x := 10
+	for {
+		if x == 0 {
+			break
+		}
+		fmt.Println("Hello World")
+		x--
+	}
 
 	/**
 	Nice. I did it!!!
@@ -44,6 +62,6 @@ func main() {
 		for j := 0; j < i; j++ {
 			fmt.Print("*")
 		}
-		fmt.Print("\n")
+		fmt.Println()
 	}
 }

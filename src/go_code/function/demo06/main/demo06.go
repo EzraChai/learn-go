@@ -2,25 +2,18 @@ package main
 
 import "fmt"
 
-var (
-	Func1 = func(n1, n2 int) int {
-		return n1 + n2
+//	It's like class in JAVA
+func AddUpper() func(int) int {
+	var n int = 10           //	declare variable
+	return func(x int) int { //	a function in a class
+		n += x
+		return n
 	}
-)
+}
 
 func main() {
-
-	res := func(n1, n2 int) int {
-		return n1 + n2
-	}(10, 20)
-
-	a := func(n1, n2 int) int {
-		return n1 + n2
-	}
-
-	fmt.Println(res)
-	fmt.Println(a(10, 30))
-
-	res4 := Func1(70, 40)
-	fmt.Println(res4)
+	f := AddUpper()
+	fmt.Println(f(1)) //	11
+	fmt.Println(f(2)) //	13
+	fmt.Println(f(3)) //	16
 }

@@ -20,4 +20,5 @@ func main() {
 	fmt.Println("Please enter a number")
 	fmt.Scanln(&n)
 	pyramid(n)
+
 }

@@ -76,4 +76,26 @@ func main() {
 	//	12.
 	//	1.	String	2.	Old	Word	3.	New Word	4.	How many times you want to replace in a strings (n = -1 ==> Change all)
 	fmt.Println(strings.Replace("Hello Chibai", "Chibai", "Chloe", -1))
+
+	fmt.Println()
+
+	//	13.
+	strArr := strings.Split("I love Chloe", " ")
+	for _, str := range strArr {
+		fmt.Println(str)
+	}
+
+	//	14.
+	str = strings.TrimSpace("      Hello Chloe    ")
+	fmt.Printf("%q\n", str)
+
+	//	15.
+	str = strings.Trim("! he!lo! ", " !")
+	fmt.Printf("%q\n", str)
+
+	//	16.
+	b = strings.HasPrefix("http://localhost:2400", "http")
+	fmt.Println(b)
+	b = strings.HasSuffix("https://google.com", "com")
+	fmt.Println(b)
 }

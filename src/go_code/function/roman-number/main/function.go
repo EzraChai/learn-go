@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
 	"strings"
@@ -75,6 +76,11 @@ func mapAllNum678(numberStrArr, frontLetter, letter string) (str string) {
 }
 
 func convertIntToRomanNumber(number int) (str string) {
+	//	Check if the number is a positive number
+	if number < 0 {
+		panic(errors.New("only positive number between 1 to 1000 is available"))
+	}
+
 	//	Turn number to string
 	numberStr := strconv.Itoa(number)
 
@@ -106,8 +112,9 @@ func convertIntToRomanNumber(number int) (str string) {
 	return
 }
 
+//	Function to convert an Integer
 func main() {
-	num := 11
+	num := 49
 	str := convertIntToRomanNumber(num)
 	fmt.Println(str)
 }

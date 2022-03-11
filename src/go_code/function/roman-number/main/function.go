@@ -78,7 +78,7 @@ func mapAllNum678(numberStrArr, frontLetter, letter string) (str string) {
 func convertIntToRomanNumber(number int) (str string) {
 	//	Check if the number is a positive number
 	if number < 0 {
-		panic(errors.New("only positive number between 1 to 1000 is available"))
+		panic(errors.New("only positive number between 1 to 1499 is available"))
 	}
 
 	//	Turn number to string
@@ -112,9 +112,9 @@ func convertIntToRomanNumber(number int) (str string) {
 	return
 }
 
-//	Function to convert an Integer
+//	Function to convert an Integer between 1 and 1499 to a Roman Number
 func main() {
-	num := 49
+	num := 1499
 	str := convertIntToRomanNumber(num)
 	fmt.Println(str)
 }

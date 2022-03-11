@@ -1,12 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	numArr := [...]int{1, 2, 3, 4, 5, 90, 109, 23}
+	numArr := []int{1, 2, 3, 4, 5, 90, 109, 23}
 
 	var largestNum int
 	var index int = -1
+
+	//	Get the largest Number
 	for i := 0; i < len(numArr); i++ {
 		if i == 0 {
 			largestNum = numArr[i]

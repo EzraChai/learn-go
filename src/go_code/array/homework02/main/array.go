@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 func main() {
@@ -11,6 +12,7 @@ func main() {
 	var index int = -1
 
 	//	Get the largest Number
+	sort.Ints(numArr)
 	for i := 0; i < len(numArr); i++ {
 		if i == 0 {
 			largestNum = numArr[i]

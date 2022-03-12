@@ -12,12 +12,13 @@ func main() {
 //	Sort from small number to big number
 func bubbleSort(arr []int) []int {
 	for i := 0; i < len(arr)-1; i++ {
+		//	First number as larger number
 		largerNum := arr[0]
 		for j := 1; j < len(arr)-i; j++ {
 			//	Check if the front number is bigger than the current Number
 			//	If the front number is bigger than the current number, switch the position
 			if largerNum > arr[j] {
-				//	Switch the position
+				//	Switch the position of the number
 				arr[j-1] += arr[j]
 				arr[j] = arr[j-1] - arr[j]
 				arr[j-1] -= arr[j]

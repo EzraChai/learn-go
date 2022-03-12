@@ -38,6 +38,7 @@ func reverseArr(arr []int) []int {
 	return arr
 }
 
+//	Get the highest number in an array
 func getHighestNumber(arr []int) (higestNumber, index int) {
 	higestNumber = arr[0]
 	for i := 1; i < len(arr); i++ {
@@ -49,6 +50,8 @@ func getHighestNumber(arr []int) (higestNumber, index int) {
 	return
 }
 
+//	Return a true if there is a number 55, or else return false
+//	Using a Binary Search because it is efficient
 func isThereNumber55(arr []int) (b bool) {
 	leftIndex := 0
 	rightIndex := len(arr) - 1

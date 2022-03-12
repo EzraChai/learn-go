@@ -30,5 +30,17 @@ func main() {
 
 	fmt.Println()
 	arr3 := [2][3]int{{1, 2, 3}, {4, 5, 6}}
-	fmt.Println(arr3)
+	for i := 0; i < len(arr3); i++ {
+		for j := 0; j < len(arr3[i]); j++ {
+			fmt.Printf("%v ", arr3[i][j])
+		}
+		fmt.Println()
+	}
+	fmt.Println()
+	for _, ints := range arr3 {
+		for _, value := range ints {
+			fmt.Printf("%v ", value)
+		}
+		fmt.Println()
+	}
 }

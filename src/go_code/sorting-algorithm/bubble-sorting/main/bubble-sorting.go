@@ -18,9 +18,12 @@ func bubbleSort(arr []int) {
 			//	If the front number is bigger than the current number, switch the position
 			if arr[j-1] > arr[j] {
 				//	Switch the position of the number
-				arr[j-1] += arr[j]
-				arr[j] = arr[j-1] - arr[j]
-				arr[j-1] -= arr[j]
+				arr[j-1], arr[j] = arr[j], arr[j-1]
+
+				//	Older Solution
+				//arr[j-1] += arr[j]
+				//arr[j] = arr[j-1] - arr[j]
+				//arr[j-1] -= arr[j]
 			}
 		}
 	}

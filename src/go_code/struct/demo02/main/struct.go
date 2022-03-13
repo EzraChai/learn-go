@@ -32,13 +32,13 @@ func main() {
 		fmt.Println("OK")
 	}
 
-	//	2. method
+	//	*2. method	//
 	p2 := Person{Name: "Chloe Gan", Age: 16}
 	fmt.Println("P2 =", p2)
 
 	//	3. method
 	p3 := new(Person)
-	//	(*p3).Name = "Ezra Chai" == p3.Name = "Ezra Chai"
+	// ** (*p3).Name = "Ezra Chai" == p3.Name = "Ezra Chai"
 	p3.Name = "Ezra Chai"
 	fmt.Println("P3 =", *p3)
 

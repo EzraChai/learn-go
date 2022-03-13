@@ -45,6 +45,7 @@ func (*MethodUtils) printShapeWithManyOption(row, column int, character byte) {
 }
 
 func (*MethodUtils) printMultiplicationTable(num int) {
+	//	O(n^2)
 	for j := 1; j <= num; j++ {
 		for i := 1; i <= j; i++ {
 			fmt.Printf("%v x %v = %v\t", i, j, j*i)

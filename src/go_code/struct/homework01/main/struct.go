@@ -52,7 +52,6 @@ func (*MethodUtils) printMultiplicationTable(num int) {
 		}
 		fmt.Println()
 	}
-
 }
 
 func main() {

@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"errors"
+	"fmt"
+)
 
 type A struct {
 	Num int
@@ -11,6 +15,12 @@ type B struct {
 }
 
 type C A
+
+type Monster struct {
+	Name  string `json:"name"`
+	Age   int    `json:"age"`
+	Skill string `json:"skill"`
+}
 
 func main() {
 
@@ -27,7 +37,17 @@ func main() {
 
 	var c C
 	//	Possible
+	//	remember to force change the type
 	c = C(a)
 	fmt.Println(c)
 
+	monster := Monster{"BABI", 500, "kill people"}
+
+	//	Serialization
+	monsterJson, err := json.Marshal(monster) //json.Marshal used REFLECT
+	if err != nil {
+		errors.New("Invalid struct")
+	}
+	fmt.Println(string(monsterJson))
+	fmt.Println(monster)
 }

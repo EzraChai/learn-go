@@ -22,7 +22,7 @@ func main() {
 	var s1 = Student{
 		Id:     1,
 		Name:   "Chloe Gan",
-		Gender: "Woman",
+		Gender: "female",
 		Age:    16,
 		Score:  100,
 	}

@@ -28,7 +28,7 @@ func (cs *CustomerService) FindById(id *int) (index int) {
 		return -1
 	}
 	leftIndex := 0
-	rightIndex := cs.customerNumber
+	rightIndex := len(cs.customers)
 	for {
 		if leftIndex > rightIndex {
 			return -1

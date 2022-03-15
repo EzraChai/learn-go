@@ -81,6 +81,7 @@ func (customerView *customerView) showDeleteCustomer() {
 				customerView.showDeleteCustomer()
 			}
 			fmt.Println("----------------Delete complete----------------")
+			fmt.Println()
 			return
 		case "n":
 			return

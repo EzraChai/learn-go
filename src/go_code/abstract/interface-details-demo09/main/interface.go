@@ -39,5 +39,4 @@ func main() {
 	monkey.Climbing()
 	monkey.Fly()
 	monkey.Swim()
-
 }

@@ -165,7 +165,10 @@ func (customerView *customerView) showDeleteCustomer() {
 
 	for {
 		fmt.Print("Are you sure you want to delete customer with id: [" + strconv.Itoa(id) + "] ? [y/N]")
-		fmt.Scanln(&customerView.toggleExit)
+		_, err := fmt.Scanln(&customerView.toggleExit)
+		if err != nil {
+			return
+		}
 		switch strings.Trim(strings.ToLower(customerView.toggleExit), " ") {
 		case "y":
 			if !customerView.customerService.DeleteByIndex(&id) {

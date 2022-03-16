@@ -61,6 +61,96 @@ func (customerView *customerView) showAddCustomer() {
 	fmt.Println()
 }
 
+func (customerView *customerView) showEditCustomer() {
+	var id int
+	fmt.Print("Enter the customer's ID [-1 exit]: ")
+	fmt.Scanln(&id)
+	if id == -1 {
+		return
+	}
+
+	index := customerView.customerService.FindById(&id)
+	if index == -1 {
+		fmt.Println("Customer not found.")
+		fmt.Println()
+		customerView.showEditCustomer()
+	}
+	customer := customerView.customerService.GetCustomer(index)
+	fmt.Print("Name [" + customer.Name + "]: ")
+	scanner := bufio.NewScanner(os.Stdin)
+	name := ""
+	for scanner.Scan() {
+		name = scanner.Text()
+		break
+	}
+	if name != "" {
+		customer.Name = name
+	}
+	for {
+		fmt.Print("Gender [ Male/Female ] [" + customer.Gender + "]: ")
+		gender := ""
+		for scanner.Scan() {
+			gender = scanner.Text()
+			break
+		}
+		if gender != "" {
+			oldGender := customer.Gender
+			customer.Gender = gender
+			if customer.ValidateGender() {
+				break
+			} else {
+				customer.Gender = oldGender
+			}
+		} else {
+			break
+		}
+
+	}
+
+	for {
+		fmt.Print("Age [" + strconv.Itoa(customer.Age) + "]: ")
+		age := ""
+		_, err := fmt.Scanln(&age)
+
+		if err == nil || err.Error() == "unexpected newline" {
+			if age == "" {
+				break
+			}
+			newAge, err := strconv.Atoi(age)
+			if err == nil {
+				oldAge := customer.Age
+				customer.Age = newAge
+				if !customer.ValidateAge() {
+					customer.Age = oldAge
+					continue
+				}
+				break
+			}
+		}
+
+	}
+	fmt.Print("Phone [" + customer.Phone + "]: ")
+	phone := ""
+	for scanner.Scan() {
+		phone = scanner.Text()
+		break
+	}
+	if phone != "" {
+		customer.Phone = phone
+	}
+	fmt.Print("Email [" + customer.Email + "]: ")
+	email := ""
+	for scanner.Scan() {
+		email = scanner.Text()
+		break
+	}
+	if email != "" {
+		customer.Email = email
+	}
+	fmt.Println()
+	customerView.customerService.EditCustomer(&customer, index)
+}
+
 func (customerView *customerView) showDeleteCustomer() {
 	var id int
 
@@ -68,6 +158,7 @@ func (customerView *customerView) showDeleteCustomer() {
 	fmt.Print("Enter the customer's ID [-1 exit]: ")
 	fmt.Scanln(&id)
 	if id == -1 {
+		fmt.Println()
 		return
 	}
 	customerView.toggleExit = ""
@@ -80,7 +171,8 @@ func (customerView *customerView) showDeleteCustomer() {
 			if !customerView.customerService.DeleteByIndex(&id) {
 				customerView.showDeleteCustomer()
 			}
-			fmt.Println("----------------Delete complete----------------")
+			fmt.Println()
+			fmt.Println("-----------------Delete complete-----------------")
 			fmt.Println()
 			return
 		case "n":
@@ -139,7 +231,7 @@ func (customerView *customerView) showMenu() {
 		case 1:
 			customerView.showAddCustomer()
 		case 2:
-			fmt.Println("                 2 Edit a Customer")
+			customerView.showEditCustomer()
 		case 3:
 			customerView.showDeleteCustomer()
 		case 4:

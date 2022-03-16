@@ -23,6 +23,14 @@ func (cs *CustomerService) ListCustomer() []model.Customer {
 	return cs.customers
 }
 
+func (cs *CustomerService) GetCustomer(index int) model.Customer {
+	return cs.customers[index]
+}
+
+func (cs *CustomerService) EditCustomer(customer *model.Customer, index int) {
+	cs.customers[index] = *customer
+}
+
 func (cs *CustomerService) FindById(id *int) (index int) {
 	if *id > cs.customerNumber {
 		return -1

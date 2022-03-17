@@ -17,9 +17,7 @@ func NewArguments() *arguments {
 	return &arguments{}
 }
 
-//	Useful ✅
-func main() {
-	args := NewArguments()
+func (args *arguments) GetInput() {
 	flag.StringVar(&args.user, "u", "", "Username")
 	flag.StringVar(&args.password, "pwd", "", "Password")
 	flag.StringVar(&args.host, "h", "localhost", "Host")
@@ -27,6 +25,12 @@ func main() {
 
 	//	Important Function, Parse
 	flag.Parse()
+}
+
+//	Useful ✅
+func main() {
+	args := NewArguments()
+	args.GetInput()
 
 	// RUN FILE : ./args -u admin -pwd 123456 -h localhost -p 8000
 	//OUTPUT : user=admin password=123456 host=localhost port=8000

@@ -28,6 +28,6 @@ func TestPerson_DeserializePerson(t *testing.T) {
 		Hobby: "Read books",
 	}
 	if *person != *personCopied {
-		t.Fatal("person not same")
+		t.Fatalf("expected value: %v, value: %v", *personCopied, *person)
 	}
 }

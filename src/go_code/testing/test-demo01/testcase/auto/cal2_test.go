@@ -12,8 +12,10 @@ func TestBinarySearch(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
-
+		{"01", args{
+			arr: []int{1, 2, 3, 3, 4, 5, 6, 7, 8, 9},
+			n:   8,
+		}, 8},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

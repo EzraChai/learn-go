@@ -15,12 +15,7 @@ func main() {
 	var chessMap [11][11]int
 	chessMap[1][2] = 1 //	black
 	chessMap[2][3] = 2 //	white
-	for i := 0; i < len(chessMap); i++ {
-		for j := 0; j < len(chessMap[i]); j++ {
-			fmt.Printf("%v  ", chessMap[i][j])
-		}
-		fmt.Println()
-	}
+	printTwoDimensionalArray(chessMap)
 
 	var savedArray []Node
 
@@ -56,16 +51,22 @@ func main() {
 	}
 	fmt.Println()
 
-	for i := 0; i < len(chessMap2); i++ {
-		for j := 0; j < len(chessMap2[i]); j++ {
-			fmt.Printf("%v  ", chessMap2[i][j])
+	printTwoDimensionalArray(chessMap2)
+
+	fmt.Println()
+
+	//	Size of saved chess map before using sparse array
+	fmt.Println("Size before compress ", unsafe.Sizeof(chessMap))
+
+	//	Size of saved chess map after using sparse array
+	fmt.Println("Size after compress ", unsafe.Sizeof(savedArray))
+}
+
+func printTwoDimensionalArray(array [11][11]int) {
+	for i := 0; i < len(array); i++ {
+		for j := 0; j < len(array[i]); j++ {
+			fmt.Printf("%v  ", array[i][j])
 		}
 		fmt.Println()
 	}
-
-	//	Size of saved chess map before using sparse array
-	fmt.Println(unsafe.Sizeof(chessMap))
-
-	//	Size of saved chess map after using sparse array
-	fmt.Println(unsafe.Sizeof(savedArray))
 }

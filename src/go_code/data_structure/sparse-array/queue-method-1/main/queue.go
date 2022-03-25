@@ -19,11 +19,11 @@ func (q *queue) SetQueueElement(num int) {
 }
 
 func (q *queue) GetQueueElement() int {
-	q.front++
-	if q.front > q.rear {
+	if q.front+1 > q.rear {
 		fmt.Println("no more elements")
 		return 0
 	}
+	q.front++
 	num := q.queueArray[q.front]
 	q.queueArray[q.front] = 0
 	return num

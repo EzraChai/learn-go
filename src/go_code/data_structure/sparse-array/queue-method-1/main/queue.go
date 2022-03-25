@@ -10,7 +10,7 @@ type queue struct {
 }
 
 func (q *queue) SetQueueElement(num int) {
-	if q.rear+1 > q.maxSize {
+	if q.rear == q.maxSize {
 		fmt.Println("index out of bounds")
 		return
 	}
@@ -19,7 +19,7 @@ func (q *queue) SetQueueElement(num int) {
 }
 
 func (q *queue) GetQueueElement() int {
-	if q.front+1 > q.rear {
+	if q.front == q.rear {
 		fmt.Println("no more elements")
 		return 0
 	}

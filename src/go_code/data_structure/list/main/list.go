@@ -49,6 +49,39 @@ func InsertHeroNodeV2(head *PersonNode, newNode *PersonNode) {
 	temp.next = newNode
 }
 
+//	Delete a node element
+func DeleteNodeElement(head *PersonNode, id int) (err error) {
+	temp := head
+	for {
+		if temp.next == nil {
+			err = errors.New("node not found")
+			break
+		} else if temp.next.no == id {
+			temp.next = temp.next.next
+			break
+		}
+		temp = temp.next
+	}
+	return
+}
+
+func EditNodeElement(head *PersonNode, newPerson *PersonNode) (err error) {
+	temp := head
+
+	for {
+		if temp.next == nil {
+			err = errors.New("node not found")
+			break
+		} else if temp.next.no == newPerson.no {
+			newPerson.next = temp.next.next
+			temp.next = newPerson
+			break
+		}
+		temp = temp.next
+	}
+	return
+}
+
 //	Add node to the list
 func InsertPersonNode(head *PersonNode, newNode *PersonNode) {
 
@@ -97,4 +130,20 @@ func main() {
 	//InsertPersonNode(head, person4)
 
 	ListPersonNode(head)
+
+	fmt.Println()
+	DeleteNodeElement(head, 4)
+	DeleteNodeElement(head, 2)
+	ListPersonNode(head)
+
+	fmt.Println()
+	err := EditNodeElement(head, &PersonNode{
+		no:   1,
+		name: "Ezra Chai",
+	})
+	if err != nil {
+		fmt.Println(err)
+	}
+	ListPersonNode(head)
+
 }

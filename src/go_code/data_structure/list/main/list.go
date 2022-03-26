@@ -15,12 +15,17 @@ func InitHeaderNode() *PersonNode {
 //	List out all the PersonNode
 func ListPersonNode(head *PersonNode) {
 	temp := head
+	if temp.next == nil {
+		return
+	}
 	for {
-		fmt.Println(temp)
+		fmt.Println(temp.next)
+		temp = temp.next
+
+		//	Last node
 		if temp.next == nil {
 			break
 		}
-		temp = temp.next
 	}
 }
 
@@ -56,9 +61,15 @@ func main() {
 		no:   3,
 		name: "Jacky",
 	}
+
+	person4 := &PersonNode{
+		no:   2,
+		name: "Brian",
+	}
 	InsertPersonNode(head, person1)
 	InsertPersonNode(head, person2)
 	InsertPersonNode(head, person3)
+	InsertPersonNode(head, person4)
 
 	ListPersonNode(head)
 }

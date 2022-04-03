@@ -32,7 +32,7 @@ func ListPersonNode(head *PersonNode) {
 	}
 }
 
-//	Sort by the no from smallest to biggest
+//	Sort by the no from the smallest to the biggest
 func InsertHeroNodeV2(head *PersonNode, newNode *PersonNode) {
 	temp := head
 	for {

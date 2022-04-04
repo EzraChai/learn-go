@@ -16,8 +16,8 @@ func InsertHeroNode(head *Node, newNode *Node) {
 			break
 		}
 		if temp.LastNode.No > newNode.No {
-			temp.LastNode.BeforeNode = newNode
 			newNode.LastNode = temp.LastNode
+			temp.LastNode.BeforeNode = newNode
 			break
 		}
 		temp = temp.LastNode
@@ -40,7 +40,10 @@ func DeleteNode(head *Node, no int) {
 
 		temp = temp.LastNode
 	}
-	fmt.Println(temp)
+	if temp.LastNode == nil {
+		temp.BeforeNode.LastNode = nil
+		return
+	}
 	temp.BeforeNode.LastNode = temp.LastNode
 	temp.LastNode.BeforeNode = temp.BeforeNode
 }
@@ -52,7 +55,8 @@ func ListNode(head *Node) {
 			break
 		}
 		temp = temp.LastNode
-		fmt.Println(*temp)
+		fmt.Printf("No: %v Name: %v, Current: %p, Before: %p, Last: %p\n", temp.No, temp.Name, temp, temp.BeforeNode, temp.LastNode)
+
 	}
 }
 
@@ -64,7 +68,7 @@ func ListReverseNode(head *Node) {
 				if temp.BeforeNode == nil {
 					break
 				}
-				fmt.Println(*temp)
+				fmt.Printf("No: %v Name: %v, Current: %p, Before: %p, Last: %p\n", temp.No, temp.Name, temp, temp.BeforeNode, temp.LastNode)
 				temp = temp.BeforeNode
 			}
 			break
@@ -91,7 +95,9 @@ func main() {
 		Name: "Zoewin Tan",
 	})
 	ListReverseNode(headNode)
-	DeleteNode(headNode, 1)
+	fmt.Println("***********")
+	ListNode(headNode)
+	DeleteNode(headNode, 5)
 	fmt.Println("***********")
 	ListNode(headNode)
 

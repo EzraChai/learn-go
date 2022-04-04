@@ -27,6 +27,24 @@ func InsertHeroNode(head *Node, newNode *Node) {
 	newNode.BeforeNode = temp
 }
 
+func DeleteNode(head *Node, no int) {
+	temp := head
+	for {
+		if temp.No == no {
+			break
+		}
+		if temp.LastNode == nil {
+			fmt.Println("Not found")
+			return
+		}
+
+		temp = temp.LastNode
+	}
+	fmt.Println(temp)
+	temp.BeforeNode.LastNode = temp.LastNode
+	temp.LastNode.BeforeNode = temp.BeforeNode
+}
+
 func ListNode(head *Node) {
 	temp := head
 	for {
@@ -72,6 +90,9 @@ func main() {
 		No:   3,
 		Name: "Zoewin Tan",
 	})
-	//ListNode(headNode)
 	ListReverseNode(headNode)
+	DeleteNode(headNode, 1)
+	fmt.Println("***********")
+	ListNode(headNode)
+
 }

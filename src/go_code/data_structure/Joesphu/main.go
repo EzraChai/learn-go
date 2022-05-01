@@ -41,16 +41,21 @@ func AddBoy(num int) *Boy {
 func ShowBoyBoy(firstBoy *Boy) {
 
 	if firstBoy.NextBoy == nil {
-		fmt.Errorf("Nil List")
+		fmt.Errorf("There's only one boy boy")
 	}
 	currentBoy := firstBoy
+
 	for {
+
 		fmt.Printf("Boy's Id: [" + strconv.Itoa(currentBoy.No) + "]\n")
-		if currentBoy.NextBoy == firstBoy {
+
+		currentBoy = currentBoy.NextBoy
+
+		if currentBoy == firstBoy {
 			return
 		}
-		currentBoy = currentBoy.NextBoy
 	}
+
 }
 
 func main() {
